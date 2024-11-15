@@ -32,11 +32,6 @@ app.use(bodyParser.json());
 // Create a POST route to register game data
 app.post('/register', async (req, res) => {
   const { name, time, stars } = req.body;
-
-  if (!name || !time || !stars) {
-    return res.status(400).json({ error: 'All fields are required: name, time, stars' });
-  }
-
   try {
     // Save player data to the database
     const player = new Player({ name, time, stars });
